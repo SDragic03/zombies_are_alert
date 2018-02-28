@@ -2,7 +2,7 @@ const GAME_TITLE = "ZOMBIES ARE BETTER TROLLS";
 
 var charactersName;
 var warehouseAttempts = 0;
-var churchAttempts = 0;
+var storeAttempts = 0;
 var fightAttempts = 0;
 var runAttempts = 0;
 var playersHP = 100;
@@ -37,7 +37,7 @@ alert("They sure were annoying to write...");
 alert("Well, not the dot dot dot ones... Those were in a for loop!");
 alert("HAHAHA!");
 
-if (warehouseAttempts || churchAttempts === 0) {
+if (warehouseAttempts || storeAttempts === 0) {
     alert("Okay lets NOW get started!");
 
     let confirmPlayersName;
@@ -57,7 +57,7 @@ alert("Okay " + charactersName + "...");
 alert("You are in need of supplies");
 alert("In front of you there are 2 builds...");
 alert("To your left: a warehouse");
-alert("To your right: a church");
+alert("To your right: a store");
 
 do {
     resetPlayersHP();
@@ -81,8 +81,8 @@ do {
 
     let decision1 = "";
 
-    if (churchAttempts === 0) {
-        decision1 = prompt("Which way would you like to go? (warehouse or church)").toLowerCase();
+    if (storeAttempts === 0) {
+        decision1 = prompt("Which way would you like to go? (warehouse or store)").toLowerCase();
     } else {
         decision1 = prompt("Which way would you like to go? (warehouse)").toLowerCase();
     }
@@ -266,25 +266,114 @@ do {
             warehouseAttempts++;
         }
 
-    } else if (decision1 === "church") {
-
-        switch (churchAttempts) {
-            case 0:
-                alert("Don't pick church");
-                churchAttempts++;
-                break;
-            case 1:
-                alert("Pick warehouse...");
-                churchAttempts++;
-                break;
-            case 2:
-                alert("DLC REQUIRED!");
-                churchAttempts++;
-                break;
-            case 3:
-                alert("...");
-                break;
+    } else if (decision1 === "store") {
+        // Array stuff!!!!
+        let listOfQuestions = ["", "", "", "", ""]; // Add in scenarios 
+        let possibleWeaponsAvailable = ["Pipe", "Bottle", "Shoe", "Broom Handle"];
+        
+        function randomNumber(range) {
+            return Math.round(Math.random() * range);
         }
+       
+/*        let listOfQuestions = [
+            {   question1: "This",
+                question2: "That",
+                question3: "Those",
+                question4: "There's",
+                question5: "Mine"
+            },
+            {   question6: "This",
+                question7: "That",
+                question8: "Those",
+                question9: "There's",
+                question10: "Mine"
+            }*/
+        ];
+
+        //let randomQuestion = listOfQuestions[Math.floor(Math.random() * listOfQuestions.length)];
+
+        alert("You look around and see that the coast is clear...");
+        alert("You speed walk towards the store!");
+        alert("There is a door in front of your face...");
+
+        let tryToOpenDoor = prompt("Would you like to try and open it? (yes or no)").toLowerCase();
+
+        if (tryToOpenDoor === "yes") {
+            
+            alert("You push open the door!");
+            alert("The place looks ravaged...");
+            alert("You begin searching through the rubble anyway...");
+            alert("You are focused on searching...");
+            alert("Nothing seems valuable...");
+            alert("You turn toward the door to leave...");
+            alert("THERE IS A ZOMBIE!");
+            alert("ITS HEADING RIGHT AT YOU!");
+            
+            alert("Quick!");
+            alert("Try to find a weapon!");
+            alert("You frantically search for a weapon!");
+            alert("...");
+            alert("..");
+            alert(".");
+            
+        let weapon = possibleWeaponsAvailable[randomNumber(weaponList.length - 1)];
+            
+            alert("You find a " + weapon + "!");
+            
+        let survival = randomNumber(2); // 33%
+            
+            alert("");
+        
+        if (survival === 0) {
+            alert("The zombie got to you first!");
+            alert("The zombie bits you!");
+            alert("YOU DIED!");
+        } else if (survival > 0) {
+            alert("You attack the zombie with your " + weapon);
+            alert("The " + weapon + " splits the zombies head!");
+            alert("You're alive!");
+        }
+
+            // if attempt is the first then this:
+/*            alert("You take your bare hands and try to pull apart the door with all your might...");
+            alert("This is the part where you would button mash until the door opens...");
+            alert("BUT, since this game does not have any button input... ");
+            alert("We will have to improvise!");
+
+            alert("Here is how this part of the game will work...");
+            alert("You will get a random question from a list of questions");
+            alert("If you answer the question correct...");
+            alert("The progress to open the door will continue");
+
+            alert("If you answer the question incorrect...");
+            alert("You tiny baby arms will give up...");
+            alert("and the door will close back up!");
+            alert("Exciting right!?");
+            alert("=]");
+
+
+            alert("OKAY!");
+            alert("HERE WE A GO!");*/
+
+            // else: You know the drill... Answer the questions!
+
+        } else if (tryToOpenDoor === "no") {
+            alert("You decide that the door is to much of a hassle...");
+            alert("You look a little closer and see a broken window on the side of the building...");
+
+        }
+        else {
+            alert("YOU DIED!");
+            alert("THOSE WEREN'T THE CHOICES I GAVE YOU!");
+            alert("BACK TO THE BEGINNING YOU GO!");
+
+            storeAttempts++;
+        }
+
+        alert("");
+        alert("");
+        alert("");
+        alert("");
 
         completeLevel1 = false;
     } else {
